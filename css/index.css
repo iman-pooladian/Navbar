@@ -1,0 +1,199 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+}
+
+@media all and (max-width: 991px) {
+  .navigation {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+  }
+  ul {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+
+  li {
+    width: 100%;
+    height: 10%;
+  }
+  li:first-child {
+    margin-top: 50px;
+  }
+
+  a {
+    display: block;
+    height: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: calc(12px + 0.5vw);
+    font-family: sans-serif;
+    color: rgb(200, 200, 200);
+    text-align: left;
+    line-height: 50px;
+    transition: all 300ms;
+  }
+
+  a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(200, 200, 200);
+    margin-top: -9px;
+    transform: scaleX(0);
+    transition: all 300ms linear;
+    transform-origin: left;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+    background-color: rgb(221, 219, 78);
+  }
+
+  a:hover {
+    color: yellow;
+    transform: translateY(-2px);
+  }
+}
+
+.toggle-box {
+  position: absolute;
+  width: calc(10px + 7vw);
+  height: 40px;
+  /* background-color: tomato; */
+  right: 20px;
+  top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  height: 2px;
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+  position: relative;
+  transition: all 500ms;
+}
+.toggle-btn::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: -8px;
+  left: 0;
+  background-color: rgb(200, 200, 200);
+  transition: all 500ms;
+}
+.toggle-btn::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 8px;
+  left: 0;
+  background-color: rgb(200, 200, 200);
+  transition: all 500ms;
+}
+
+.toggle-btn.open {
+  background-color: transparent;
+}
+.toggle-btn.open::before {
+  transform: rotate(-45deg) translateY(12px) translateX(-1px);
+  background-color: yellow;
+
+}
+
+.toggle-btn.open::after {
+  transform: rotate(45deg) translateY(-10px);
+  background-color: yellow;
+
+}
+
+@keyframes open{
+    from{
+        width: 0;
+        height: 0;;
+    }
+    to{
+        width: 100%;
+        height: 90vh;
+    }
+}
+.open-nav {
+  animation-name: open;
+  animation-duration: 600ms;
+  width: 100%;
+  height: 90vh;
+}
+
+@media all and (min-width: 992px) {
+  .navigation {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+  }
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+
+  li {
+    margin-right: 15px;
+  }
+
+  a {
+    display: block;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: calc(10px + 0.5vw);
+    font-family: sans-serif;
+    color: rgb(200, 200, 200);
+    text-align: center;
+    line-height: 50px;
+    transition: all 300ms;
+  }
+
+  a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(200, 200, 200);
+    margin-top: -9px;
+    transform: scaleX(0);
+    transition: all 300ms linear;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+    background-color: rgb(221, 219, 78);
+  }
+
+  a:hover {
+    color: yellow;
+    transform: translateY(-2px);
+  }
+  .toggle-box {
+    display: none;
+  }
+}
